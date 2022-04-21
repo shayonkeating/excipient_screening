@@ -13,7 +13,7 @@ from sklearn import preprocessing
 from matplotlib import rcParams
 
 # set pathway
-plate_path = r'C:\Users\skeating\OneDrive - Poseida Therapeutics, Inc\Desktop\Excipient_Screen\Excipient_Screen04\Plate.xls'
+plate_path = r'path\Plate.xls'
 # set plate number
 plate_num = "PLATE_004"
 
@@ -25,7 +25,7 @@ df = df[df['Cells/Singlets - FSC/Singlets - SSC/GFP+ | Freq. of Parent'] != '100
 df = df[df["Unnamed: 0"].str.contains("Mean|SD") == False]
 
 # import control data and clean
-raw_controls = pd.read_excel (r'C:\Users\skeating\OneDrive - Poseida Therapeutics, Inc\Desktop\Excipient_Screen\Excipient_Screen04\Controls.xls')
+raw_controls = pd.read_excel (r'path\Controls.xls')
 df_con = pd.DataFrame(raw_controls)
 df_con = df_con[df_con["Unnamed: 0"].str.contains("Mean|SD") == False]
 
@@ -76,7 +76,7 @@ plt.savefig('Median.jpg', dpi = 150, transparent=True)
 
 # correlating plate number back to master spreadsheet to check for compound identification
 # load raw spreadsheet
-raw_master = pd.read_excel(r'C:\Users\skeating\OneDrive - Poseida Therapeutics, Inc\Desktop\Excipient_Screen\Excipient_Library_Master.xlsx')
+raw_master = pd.read_excel(r'path\Excipient_Library_Master.xlsx')
 df_master = pd.DataFrame(raw_master)
 
 # change format for plate and only select plate that is the plate_num, make into new df
